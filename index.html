@@ -32,24 +32,17 @@ body{ background:#121212; color:white; font-family:'Cormorant Garamond', serif; 
 .phone-screen::-webkit-scrollbar-thumb { background:#333; border-radius:10px; }
 
 /* ================= ANIMASI SISTEM ================= */
-.reveal-up, .reveal-zoom, .reveal-side, .reveal-fade { 
-    opacity: 0; 
-    filter: blur(10px); 
-    transition: all 2.5s cubic-bezier(0.2, 1, 0.3, 1); 
-}
+/* Kita buat gerakannya minimalis (hanya 10px) atau 0 agar tidak memotong kepala */
+.reveal-up { transform: translateY(10px); } 
 
-/* Jarak dorong dikurangi dari 80px ke 30px agar tidak memotong kepala */
-.reveal-up { transform: translateY(30px); }
-
-.reveal-zoom { transform: scale(0.95); } /* Zoom mulai dari 0.95 agar lebih halus */
-.reveal-side { transform: translateX(-30px); }
-.reveal-fade { transform: translateY(0); }
+.reveal-zoom { transform: scale(1); } /* Mulai dari ukuran asli agar tidak membesar dari kecil */
 
 .active { 
     opacity: 1 !important; 
-    transform: translate(0) scale(1) !important; 
+    transform: translateY(0) scale(1) !important; 
     filter: blur(0) !important; 
 }
+
 
 /* ================= STYLE TOMBOL EMAS ================= */
 .btn-open {
