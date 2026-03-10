@@ -32,16 +32,27 @@ body{ background:#121212; color:white; font-family:'Cormorant Garamond', serif; 
 .phone-screen::-webkit-scrollbar-thumb { background:#333; border-radius:10px; }
 
 /* ================= ANIMASI SISTEM ================= */
-/* Kita buat gerakannya minimalis (hanya 10px) atau 0 agar tidak memotong kepala */
-.reveal-up { transform: translateY(10px); } 
+/* Efek Transisi: Fokus pada Muncul Perlahan & Blur saja */
+.reveal-up, .reveal-zoom, .reveal-side, .reveal-fade { 
+    opacity: 0; 
+    filter: blur(15px); 
+    /* Transisi dibuat agak lama agar terasa elegan dan halus */
+    transition: all 2s ease-out; 
+}
 
-.reveal-zoom { transform: scale(1); } /* Mulai dari ukuran asli agar tidak membesar dari kecil */
+/* Hilangkan semua efek geser agar tidak memotong foto */
+.reveal-up { transform: translateY(0); }
+.reveal-zoom { transform: scale(1); }
+.reveal-side { transform: translateX(0); }
+.reveal-fade { transform: translateY(0); }
 
+/* Saat elemen terlihat (Active), blur hilang dan gambar jadi jelas */
 .active { 
     opacity: 1 !important; 
-    transform: translateY(0) scale(1) !important; 
     filter: blur(0) !important; 
+    transform: none !important;
 }
+
 
 
 /* ================= STYLE TOMBOL EMAS ================= */
