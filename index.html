@@ -32,26 +32,30 @@ body{ background:#121212; color:white; font-family:'Cormorant Garamond', serif; 
 .phone-screen::-webkit-scrollbar-thumb { background:#333; border-radius:10px; }
 
 /* ================= ANIMASI SISTEM ================= */
-/* Efek Transisi: Fokus pada Muncul Perlahan & Blur saja */
+/* Efek Transisi: Fokus pada Fade In & Blur (Tanpa Gerakan Geser) */
 .reveal-up, .reveal-zoom, .reveal-side, .reveal-fade { 
     opacity: 0; 
-    filter: blur(15px); 
-    /* Transisi dibuat agak lama agar terasa elegan dan halus */
-    transition: all 2s ease-out; 
+    filter: blur(10px); 
+    /* Transisi 2 detik agar munculnya elegan dan halus */
+    transition: all 2s cubic-bezier(0.2, 1, 0.3, 1); 
+    /* Kunci posisi di 0 agar tidak melompat ke bawah */
+    transform: translateY(0) scale(1); 
 }
 
-/* Hilangkan semua efek geser agar tidak memotong foto */
+/* Hilangkan semua efek dorongan atau zoom di awal */
 .reveal-up { transform: translateY(0); }
 .reveal-zoom { transform: scale(1); }
 .reveal-side { transform: translateX(0); }
 .reveal-fade { transform: translateY(0); }
 
-/* Saat elemen terlihat (Active), blur hilang dan gambar jadi jelas */
+/* Saat elemen menjadi aktif/terlihat di layar */
 .active { 
     opacity: 1 !important; 
     filter: blur(0) !important; 
-    transform: none !important;
+    /* Memastikan tidak ada sisa gerakan transform */
+    transform: translateY(0) scale(1) !important; 
 }
+
 
 
 
