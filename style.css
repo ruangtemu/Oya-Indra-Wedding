@@ -1,0 +1,1305 @@
+/* =========================================
+   1. GLOBAL VARIABLES, RESET & FONT
+   ========================================= */
+:root {
+    /* Theme Luxury Black & Gold */
+    --black-deep: #0a0a0a;
+    --black-soft: #1a1a1a;
+    --gold-primary: #D4AF37;   /* Metallic Gold */
+    --gold-bright: #F9E27E;    /* Highlight Gold */
+    --gold-muted: #996515;     /* Bronze-ish Gold */
+    --gold-line: linear-gradient(90deg, transparent, #D4AF37, transparent);
+    --cream-light: #f5f5f5;
+    --glass-black: rgba(0, 0, 0, 0.75);
+    --glass-cream: rgba(255, 255, 255, 0.1);
+    
+    /* Font Definitions */
+    --font-main: 'Cormorant Garamond', serif;
+    --font-accent: 'Montserrat', sans-serif;
+    --font-body: 'Lora', serif;
+
+    /* Shadow & UI Colors */
+    --white: #ffffff;
+    --gray-light: #f0f0f0;
+    --shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    --primary-text: #ffffff;
+}
+
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+html, body {
+    height: 100%; 
+    width: 100%;
+    background-color: var(--black-deep); 
+    color: var(--cream-light); 
+    font-family: var(--font-main); 
+    overflow-x: hidden; 
+    line-height: 1.5;
+}
+
+/* Container HP Umum */
+.phone-screen {
+    width: 100%; 
+    max-width: 450px; 
+    margin: 0 auto; 
+    min-height: 100vh; 
+    background: var(--black-deep); 
+    position: relative;
+    overflow-y: auto; 
+    overflow-x: hidden; 
+    display: flex; 
+    flex-direction: column;
+    box-shadow: 0 0 50px rgba(0,0,0,0.8);
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+}
+
+/* =========================================
+   2. ANIMASI UMUM & REVEAL
+   ========================================= */
+.anim-item {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.animate-now .anim-item { opacity: 1; transform: translateY(0); }
+
+.vintage-frame, .bride-name, .anim-drop-glow, .anim-fade-stagger {
+    opacity: 0; 
+    transform: translateY(50px);
+    transition: all 1.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.animate-now .anim-drop-glow { opacity: 1; transform: translateY(0); transition-delay: 0.2s; }
+.animate-now .vintage-frame { opacity: 1; transform: translateY(0) scale(1); transition-delay: 0.5s; }
+.animate-now .bride-name { opacity: 1; transform: translateY(0); transition-delay: 0.9s; }
+.animate-now .anim-fade-stagger { opacity: 1; transform: translateY(0); transition-delay: 1.2s; }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(25px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================================
+   3. HALAMAN 1: COVER
+   ========================================= */
+#page1 { 
+    display: flex; 
+    flex-direction: column; 
+    /* Menggunakan dvh agar pas satu layar penuh di browser HP */
+    height: 100dvh; 
+    flex-shrink: 0; 
+    overflow: hidden;
+}
+
+.photo-container {
+    flex: 1; 
+    background: url(https://res.cloudinary.com/dzuf3srww/image/upload/f_auto,q_auto/v1773138014/Cover_a2kgup.jpg) center/cover no-repeat;
+    display: flex; flex-direction: column; justify-content: flex-end; align-items: center;
+    padding-bottom: 20px; position: relative;
+    /* Memastikan kontainer foto tidak meluber */
+    min-height: 0;
+}
+
+.photo-container::after { 
+    content: ''; 
+    position: absolute; 
+    bottom: 0; left: 0; right: 0; 
+    height: 70%; 
+    background: linear-gradient(transparent, var(--black-deep)); 
+}
+
+.wedding-title { 
+    font-size: 1rem; 
+    letter-spacing: 5px; 
+    text-transform: uppercase; 
+    z-index: 2; 
+    font-weight: 900; 
+    color: var(--gold-primary); 
+    position: relative; 
+}
+
+.initials { 
+    font-family: 'Allura', cursive; 
+    font-size: 3.2rem; 
+    display: flex; 
+    align-items: center; 
+    gap: 15px; 
+    z-index: 2; 
+    color: var(--gold-bright); 
+    position: relative;
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+}
+
+.divider { width: 1.5px; height: 40px; background: var(--gold-muted); z-index: 2; opacity: 0.6; }
+.wedding-date { font-family: var(--font-body); font-style: italic; position: relative; z-index: 10; margin-top: 10px; color: var(--cream-light); }
+
+.animate-now .photo-container .wedding-title { transition-delay: 0.2s; }
+.animate-now .photo-container .initials { transition-delay: 0.4s; }
+.animate-now .photo-container .wedding-date { transition-delay: 0.6s; }
+.animate-now .countdown-section > div:first-child { transition-delay: 0.8s; }
+.animate-now .recipient { transition-delay: 1s; }
+.animate-now .btn-open { transition-delay: 1.2s; }
+
+.countdown-section { 
+    padding: 10px 20px 30px 20px; 
+    text-align: center; 
+    background: var(--black-deep); 
+    flex-shrink: 0; 
+}
+.timer-grid { display: flex; justify-content: space-around; width: 100%; margin: 15px 0; }
+.number { font-family: 'Poppins', sans-serif; font-size: 1.5rem; font-weight: 700; color: var(--gold-primary); }
+.label { font-size: 0.7rem; color: var(--gold-muted); text-transform: uppercase; }
+
+.recipient-name {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--gold-bright);
+    margin-top: 5px;
+    word-wrap: break-word;
+    text-transform: capitalize;
+}
+
+.btn-open {
+    padding: 12px 35px; font-family: var(--font-body); color: var(--black-deep);
+    background: linear-gradient(135deg, var(--gold-primary), var(--gold-bright));
+    border-radius: 50px; border: none; cursor: pointer; margin-top: 20px; font-weight: 600; z-index: 20;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+}
+.btn-hidden { opacity: 0 !important; pointer-events: none !important; transform: translateY(20px); }
+
+
+/* =========================================
+   4. HALAMAN 2 & 3: COUPLE SECTION
+   ========================================= */
+.couple-section {
+    background: radial-gradient(circle at center, #1a1a1a 0%, #050505 100%);
+    min-height: 100vh; display: flex; align-items: center; justify-content: center;
+    padding: 20px; text-align: center; position: relative;
+}
+.bg-ornament { position: absolute; width: 100%; height: 100%; background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png'); opacity: 0.1; pointer-events: none; }
+
+.card-container {
+    background: var(--glass-black); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(212, 175, 55, 0.3); padding: 40px 20px;
+    border-radius: 160px 160px 40px 40px; width: 100%; max-width: 350px;
+    min-height: 85vh; display: flex; flex-direction: column; align-items: center; position: relative;
+    box-shadow: inset 0 0 20px rgba(212, 175, 55, 0.1);
+}
+
+.label-wrapper { margin-bottom: 20px; display: flex; align-items: center; gap: 15px; }
+.label-title { font-family: var(--font-accent); letter-spacing: 6px; text-transform: uppercase; font-size: 0.65rem; color: var(--gold-primary); }
+.gold-line { height: 1px; width: 30px; background: var(--gold-line); }
+
+.vintage-frame { 
+    width: 210px; height: 270px; padding: 12px; z-index: 5; margin-bottom: 20px; 
+    /* Efek filter (sepia/contrast) telah dihapus agar foto tampil asli */
+    background: url('https://res.cloudinary.com/dzuf3srww/image/upload/f_auto,q_auto/v1/frame-vintage_qoucxy.png') center/contain no-repeat; 
+}
+.image-inner { width: 100%; height: 100%; border-radius: 2px; overflow: hidden; }
+.image-inner img { width: 100%; height: 100%; object-fit: cover; }
+
+.bride-name { font-family: var(--font-main); font-size: 2.4rem; color: var(--gold-primary); margin-bottom: 10px; font-style: italic; }
+.parent-name { font-weight: 400; font-size: 1rem; color: var(--cream-light); }
+.divider-gold { width: 40px; height: 1px; background: var(--gold-primary); margin: 10px auto; opacity: 0.5; }
+
+/* =========================================
+   5. HALAMAN 4: EVENT DETAILS & MAPS
+   ========================================= */
+#halaman4 {
+    position: relative; display: flex; justify-content: center; align-items: center;
+    overflow: hidden; background-color: #000;
+}
+
+#halaman4 .bg-slider { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; }
+
+#halaman4 .bg-slide {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background-size: cover; background-position: center; background-repeat: no-repeat;
+    opacity: 0; animation: slideShow 15s infinite ease-in-out;
+}
+
+#halaman4 .bg-slide:nth-child(1) {
+    /* Mengubah rgba(0,0,0,0.4) dan 0.8 menjadi 0.2 dan 0.5 agar lebih transparan */
+    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5)), 
+                      url('https://res.cloudinary.com/dzuf3srww/image/upload/v1773294985/Nuansa_Hitam_1_jbpx89.jpg');
+    animation-delay: 0s;
+}
+
+#halaman4 .bg-slide:nth-child(2) {
+    /* Mengubah rgba(0,0,0,0.4) dan 0.8 menjadi 0.2 dan 0.5 agar lebih transparan */
+    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5)), 
+                      url('https://res.cloudinary.com/dzuf3srww/image/upload/v1773294984/Nuansa_Hitam_2_jozopr.jpg');
+    animation-delay: 5s;
+}
+
+#halaman4 .bg-slide:nth-child(3) {
+    /* Mengubah rgba(0,0,0,0.4) dan 0.8 menjadi 0.2 dan 0.5 agar lebih transparan */
+    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5)), 
+                      url('https://res.cloudinary.com/dzuf3srww/image/upload/v1773138027/2_y7zht5.jpg');
+    animation-delay: 10s;
+}
+
+@keyframes slideShow {
+    0% { opacity: 0; transform: scale(1.15); }
+    15% { opacity: 1; }
+    33% { opacity: 1; transform: scale(1); }
+    45% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+.card-frame {
+    z-index: 2; width: 85%; max-width: 360px; padding: 60px 20px; text-align: center;
+    position: relative; background: rgba(0, 0, 0, 0.6); 
+    border: 2px solid var(--gold-primary);
+    border-radius: 180px 180px 30px 30px; 
+    box-shadow: 0 0 30px rgba(0,0,0,0.8), inset 0 0 20px rgba(212, 175, 55, 0.2);
+    animation: fadeIn 2s ease;
+}
+
+.card-frame::after {
+    content: ''; position: absolute; top: 8px; left: 8px; right: 8px; bottom: 8px;
+    border: 1px solid var(--gold-primary); opacity: 0.3; border-radius: 172px 172px 22px 22px; pointer-events: none;
+}
+
+.header-label {
+    font-family: 'Cormorant Garamond', serif; font-size: 0.8rem; letter-spacing: 6px;
+    text-transform: uppercase; margin-bottom: 20px; color: var(--gold-primary);
+    text-shadow: 2px 2px 10px rgba(0,0,0,1);
+}
+
+.main-date {
+    font-family: 'Cormorant Garamond', serif; font-size: 7rem; font-weight: 700;
+    line-height: 0.8; margin: 10px 0; color: var(--gold-bright); text-shadow: 3px 3px 15px rgba(0,0,0,1);
+}
+
+.day {
+    font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; letter-spacing: 4px;
+    color: var(--cream-light); text-transform: uppercase; text-shadow: 2px 2px 8px rgba(0,0,0,1); display: block;
+}
+
+.month-year {
+    font-size: 0.9rem; letter-spacing: 4px; color: var(--gold-primary);
+    text-transform: uppercase; text-shadow: 1px 1px 5px rgba(0,0,0,1);
+    display: block; margin-top: 5px;
+}
+
+#halaman4 .divider {
+    margin: 30px auto; width: 60%; height: 1px;
+    background: var(--gold-line);
+}
+
+.info-box p { color: var(--cream-light); text-shadow: 1px 1px 10px rgba(0,0,0,1); line-height: 1.6; }
+
+/* ATURAN OTOMATIS UNTUK JAM (TANPA UBAH HTML) */
+.info-box p:nth-of-type(1) {
+    color: var(--gold-bright);
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.btn-maps {
+    display: inline-block; background-color: transparent; color: var(--gold-primary);
+    border: 1.5px solid var(--gold-primary); text-decoration: none; padding: 12px 30px;
+    border-radius: 50px; font-size: 0.7rem; letter-spacing: 2px; transition: 0.3s;
+    margin-top: 25px; cursor: pointer;
+}
+
+.btn-maps:hover {
+    background: var(--gold-primary);
+    color: var(--black-deep);
+}
+
+
+/* =========================================
+   6. HALAMAN 5: STORY & GALLERY
+   ========================================= */
+.story-page {
+    position: relative;
+    height: 100vh; 
+    display: flex; 
+    flex-direction: column; 
+    /* DIUBAH: Menggunakan flex-start agar konten bisa digeser ke atas */
+    justify-content: flex-start; 
+    align-items: center; 
+    /* DITAMBAH: Padding atas agar tulisan naik dan tidak menutupi tengah foto */
+    padding-top: 10vh; 
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: var(--black-deep);
+    overflow: hidden;
+}
+
+/* Background Slider Story */
+.story-bg-slider {
+    position: absolute; 
+    top: 0; left: 0; 
+    width: 100%; height: 100%;
+    z-index: 0;
+}
+
+.story-bg-slide {
+    position: absolute; 
+    top: 0; left: 0; 
+    width: 100%; height: 100%;
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+    opacity: 0;
+    animation: storySlideShow 12s infinite ease-in-out;
+}
+
+.story-bg-slide:nth-child(1) { animation-delay: 0s; }
+.story-bg-slide:nth-child(2) { animation-delay: 6s; }
+
+@keyframes storySlideShow {
+    0% { opacity: 0; transform: scale(1.1); }
+    15% { opacity: 1; }
+    50% { opacity: 1; transform: scale(1); }
+    65% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+/* Overlay Hitam agar teks terbaca */
+.story-overlay {
+    position: absolute; 
+    top: 0; left: 0; 
+    width: 100%; height: 100%;
+    /* Tipiskan sedikit ke 0.6 agar foto lebih kelihatan jelas */
+    background: rgba(0, 0, 0, 0.6); 
+    z-index: 1;
+}
+
+/* Konten di atas Slider */
+.elegant-title, .arch-frame, .story-narrative {
+    position: relative;
+    z-index: 2;
+}
+
+@keyframes titleWave {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); color: var(--gold-bright); }
+}
+
+.active .wave-trigger-title { animation: titleWave 4s ease-in-out infinite; }
+
+.reveal { 
+    opacity: 0; 
+    transform: translateY(30px); 
+    transition: all 1.5s cubic-bezier(0.22, 1, 0.36, 1); 
+}
+.reveal.active { opacity: 1 !important; transform: translateY(0); }
+
+.elegant-title { text-align: center; margin-bottom: 2vh; }
+.elegant-title h2 { 
+    font-family: 'Allura', cursive; 
+    font-size: 3.2rem; 
+    color: var(--gold-primary); 
+    line-height: 1.2;
+    text-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+}
+
+.divider-line { 
+    width: 0; height: 1px; background: var(--gold-line); 
+    margin: 8px auto; transition: width 2.5s ease 0.5s; 
+}
+.active .divider-line { width: 60px; }
+
+.elegant-title p { 
+    font-family: 'Cormorant Garamond', serif; font-size: 0.75rem; 
+    letter-spacing: 4px; text-transform: uppercase; color: var(--gold-muted); 
+}
+
+/* Ukuran Frame Tetap Ada (Sesuai instruksi jangan hilangkan apapun) */
+.arch-frame {
+    width: 45%; 
+    max-width: 160px; 
+    aspect-ratio: 4/5.5;
+    border-radius: 120px 120px 15px 15px; 
+    background: var(--black-soft); 
+    padding: 5px; 
+    border: 1px solid rgba(212, 175, 55, 0.4); 
+    box-shadow: 0 10px 40px rgba(0,0,0,0.8); 
+    margin-bottom: 3vh;
+}
+
+.arch-frame img { 
+    width: 100%; height: 100%; object-fit: cover; 
+    border-radius: 115px 115px 10px 10px; 
+    filter: sepia(0.2) brightness(0.9);
+}
+
+.story-narrative { text-align: center; max-width: 320px; }
+.story-narrative p { 
+    font-family: 'Lora', serif; 
+    font-size: 0.9rem; 
+    font-style: italic; 
+    line-height: 1.7; 
+    color: #ffffff; 
+    opacity: 0.95; 
+    text-shadow: 1px 1px 10px rgba(0,0,0,0.9);
+}
+
+/* Bagian Gallery tetap di bawahnya */
+.gallery-page { 
+    padding: 80px 15px; 
+    background-color: var(--black-deep); 
+}
+.grid-container { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; max-width: 400px; margin: 0 auto; }
+.grid-item {
+    border-radius: 12px; overflow: hidden; opacity: 0; transform: translateY(40px);
+    transition: all 1.8s cubic-bezier(0.22, 1, 0.36, 1);
+    border: 0.5px solid rgba(212, 175, 55, 0.2);
+}
+.grid-item.show { opacity: 1; transform: translateY(0); }
+.grid-item img { 
+    width: 100%; height: 100%; object-fit: cover; display: block; 
+}
+.h-large { grid-column: span 2; height: 220px; }
+.h-medium { height: 160px; }
+
+/* =========================================
+   7. HALAMAN 6: QUOTE SECTION
+   ========================================= */
+.quote-section {
+    position: relative; 
+    height: 100vh; 
+    width: 100%; 
+    display: flex; 
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+    background-color: var(--black-deep); 
+    padding: 0 40px; 
+    overflow: hidden;
+    cursor: pointer; /* Menandakan area bisa diklik */
+}
+
+.background-slider {
+    position: absolute; top: 0; left: 0; width: 700%; height: 100%;
+    display: flex; z-index: 0; 
+    animation: slideBackgroundQuote 35s infinite ease-in-out;
+}
+
+.slide { width: 100%; height: 100%; background-position: center; background-size: cover; background-repeat: no-repeat; }
+
+/* Backgrounds */
+.slide-1 { background-image: url('https://res.cloudinary.com/dzuf3srww/image/upload/v1773138035/Mempelai_Wanita_x6jkbx.jpg'); }
+.slide-2 { background-image: url('https://res.cloudinary.com/dzuf3srww/image/upload/v1773138017/Mempelai_Pria_kebdrj.jpg'); }
+.slide-3 { background-image: url('https://res.cloudinary.com/dzuf3srww/image/upload/v1773138018/Cerita_Cinta_v9w00b.jpg'); }
+.slide-4 { background-image: url('https://res.cloudinary.com/dzuf3srww/image/upload/v1773138024/1_lc0jg9.jpg'); }
+.slide-5 { background-image: url('https://res.cloudinary.com/dzuf3srww/image/upload/v1773138020/3_izlcit.jpg'); }
+.slide-6 { background-image: url('https://res.cloudinary.com/dzuf3srww/image/upload/v1773138020/4_a3px7b.jpg'); }
+.slide-7 { background-image: url('https://res.cloudinary.com/dzuf3srww/image/upload/v1773138020/5_sntng1.jpg'); }
+
+.overlay { 
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
+    /* DIUBAH: Kegelapan 0.65 - Pas untuk melihat foto & membaca teks */
+    background: rgba(0, 0, 0, 0.65); 
+    z-index: 1; 
+}
+
+.content-wrapper { 
+    position: relative; 
+    z-index: 3; 
+    max-width: 320px; 
+    text-align: center; 
+    pointer-events: none; /* Supaya klik tembus ke section utama */
+}
+
+/* Warna & Font Ayat */
+.content-wrapper p {
+    font-family: 'Lora', serif;
+    font-size: 1rem;
+    line-height: 1.8;
+    font-style: italic;
+    color: var(--cream-light); /* Warna Krem Mewah */
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+}
+
+.source-text { 
+    display: block;
+    margin-top: 20px;
+    font-family: 'Poppins', sans-serif; 
+    color: var(--gold-primary); /* Warna Emas */
+    font-weight: 600; 
+    text-transform: uppercase; 
+    letter-spacing: 3px; 
+    font-size: 0.8rem; 
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+}
+
+@keyframes slideBackgroundQuote {
+    0%   { transform: translateX(0%); }
+    14%  { transform: translateX(-14.28%); }
+    28%  { transform: translateX(-28.56%); }
+    42%  { transform: translateX(-42.84%); }
+    57%  { transform: translateX(-57.12%); }
+    71%  { transform: translateX(-71.40%); }
+    85%  { transform: translateX(-85.68%); }
+    100% { transform: translateX(0%); }
+}
+
+/* Hilangkan elemen divider yang tidak perlu */
+#detail .divider, #detail .line, #detail .divider-gold {
+    display: none !important;
+}
+
+
+
+/* ============================================================
+   8. HALAMAN 7: RSVP SECTION (UPDATED)
+   ============================================================ */
+.rsvp-section { 
+    padding: 60px 20px; 
+    display: flex; 
+    justify-content: center; 
+    background-color: var(--black-deep); 
+}
+
+.rsvp-container { 
+    width: 100%; 
+    max-width: 450px; 
+}
+
+.rsvp-header { 
+    text-align: center; 
+    margin-bottom: 30px; 
+}
+
+.rsvp-header h2 { 
+    font-family: 'Cormorant Garamond', serif; 
+    font-size: 2.8rem; 
+    color: var(--gold-primary); 
+    margin: 0; 
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.2); 
+}
+
+/* --- STATS DASHBOARD (ANGKA LEBIH BESAR & BOLD) --- */
+.stats-dashboard {
+    display: flex; 
+    background: var(--black-soft); 
+    border-radius: 20px; 
+    padding: 20px 15px;
+    margin-bottom: 25px; 
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3); 
+    border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.stat-box { 
+    flex: 1; 
+    text-align: center; 
+    border-right: 1px solid rgba(212, 175, 55, 0.1); 
+}
+
+.stat-box:last-child { 
+    border: none; 
+}
+
+/* Ukuran Angka Diperbesar & Sangat Bold */
+.stat-box .num { 
+    display: block; 
+    font-size: 2.2rem; /* Ukuran jumbo */
+    font-weight: 800; /* Extra bold */
+    color: var(--gold-bright); 
+    line-height: 1.1;
+    text-shadow: 0 0 12px rgba(212, 175, 55, 0.4);
+}
+
+.stat-box .label { 
+    font-size: 0.65rem; 
+    color: #999; 
+    text-transform: uppercase; 
+    letter-spacing: 1px;
+    margin-top: 5px;
+}
+
+/* --- SWIPER & SCROLL INDICATOR --- */
+.swiper { 
+    width: 100%; 
+    height: 400px; 
+    padding-bottom: 40px !important; 
+    margin-bottom: 20px; 
+    position: relative;
+}
+
+/* Indikator "Geser ke Samping" Otomatis */
+.swiper::before {
+    content: "↔ Geser ucapan ke samping";
+    display: block;
+    text-align: center;
+    font-size: 0.75rem;
+    color: var(--gold-primary);
+    margin-bottom: 12px;
+    font-style: italic;
+    letter-spacing: 0.5px;
+    animation: bounceLateral 2s infinite;
+}
+
+@keyframes bounceLateral {
+    0%, 100% { transform: translateX(0); opacity: 0.6; }
+    50% { transform: translateX(5px); opacity: 1; }
+}
+
+.slide-page-wrapper { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 12px; 
+    height: 100%; 
+    overflow-y: auto; 
+    padding-right: 5px; 
+    scrollbar-width: none; 
+}
+
+.slide-page-wrapper::-webkit-scrollbar { 
+    display: none; 
+}
+
+/* --- COMMENT CARDS --- */
+.comment-item {
+    background: var(--black-soft); 
+    padding: 15px; 
+    border-radius: 15px; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    border-left: 4px solid var(--gold-primary); 
+    flex-shrink: 0; 
+    color: var(--cream-light);
+}
+
+.card-header { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: flex-start; 
+    gap: 10px; 
+    margin-bottom: 5px; 
+}
+
+.card-header b { 
+    font-size: 0.85rem; 
+    color: var(--gold-primary); 
+    word-break: break-word; 
+    flex: 1; 
+}
+
+.status-badge { 
+    font-size: 0.6rem; 
+    padding: 3px 8px; 
+    border-radius: 50px; 
+    font-weight: 600; 
+}
+
+.status-badge.hadir { 
+    background: rgba(212, 175, 55, 0.15); 
+    color: var(--gold-bright); 
+    border: 0.5px solid var(--gold-primary); 
+}
+
+.status-badge.absen { 
+    background: rgba(255, 100, 100, 0.1); 
+    color: #ff6464; 
+}
+
+.comment-body { 
+    font-size: 0.8rem; 
+    color: #ccc; 
+    line-height: 1.4; 
+    margin: 0; 
+    white-space: pre-wrap; 
+    word-break: break-word; 
+}
+
+.swiper-pagination-bullet-active { 
+    background: var(--gold-primary) !important; 
+}
+
+/* --- RSVP FORM --- */
+.rsvp-form { 
+    background: var(--black-soft); 
+    padding: 25px; 
+    border-radius: 25px; 
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5); 
+    border: 1px solid rgba(212, 175, 55, 0.1); 
+}
+
+.input-group { 
+    position: relative; 
+    margin-bottom: 25px; 
+}
+
+.input-group input, .input-group textarea { 
+    width: 100%; 
+    padding: 10px 0; 
+    border: none; 
+    border-bottom: 1px solid rgba(212, 175, 55, 0.3); 
+    background: none; 
+    outline: none; 
+    font-size: 0.9rem; 
+    font-family: inherit; 
+    color: var(--cream-light); 
+}
+
+.input-group label { 
+    position: absolute; 
+    left: 0; 
+    top: 10px; 
+    color: #666; 
+    transition: 0.3s; 
+    font-size: 0.9rem; 
+}
+
+.input-group input:focus ~ label, 
+.input-group input:not(:placeholder-shown) ~ label,
+.input-group textarea:focus ~ label, 
+.input-group textarea:not(:placeholder-shown) ~ label { 
+    top: -15px; 
+    font-size: 0.75rem; 
+    color: var(--gold-primary); 
+    font-weight: 600; 
+}
+
+.radio-options { 
+    display: flex; 
+    gap: 10px; 
+    margin: 15px 0 25px; 
+}
+
+.radio-options input { 
+    display: none; 
+}
+
+.radio-btn { 
+    flex: 1; 
+    text-align: center; 
+    padding: 10px; 
+    border: 1px solid rgba(212, 175, 55, 0.3); 
+    border-radius: 12px; 
+    font-size: 0.8rem; 
+    cursor: pointer; 
+    color: #888; 
+    transition: 0.3s; 
+    background: transparent; 
+}
+
+input:checked + .radio-btn { 
+    background: var(--gold-primary); 
+    color: var(--black-deep); 
+    font-weight: 700; 
+    border-color: var(--gold-primary); 
+}
+
+.btn-send { 
+    width: 100%; 
+    padding: 14px; 
+    background: linear-gradient(135deg, var(--gold-primary), var(--gold-bright)); 
+    color: var(--black-deep); 
+    border: none; 
+    border-radius: 12px; 
+    font-weight: 700; 
+    cursor: pointer; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    gap: 10px; 
+    font-family: inherit; 
+    transition: 0.3s;
+}
+
+.btn-send:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+}
+
+/* ============================================================
+   9. HALAMAN 8: WEDDING GIFT (VERTICAL STACK - NO MISSING)
+   ============================================================ */
+#halaman8 { 
+    background-color: var(--black-deep); 
+    color: var(--cream-light); 
+    font-family: 'Lora', serif; 
+    overflow: hidden;
+}
+
+#halaman8 .phone-screen { 
+    padding: 50px 20px; 
+    background-image: url('https://www.transparenttextures.com/patterns/p6.png'); 
+    opacity: 0.9; 
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center;
+    min-height: 100vh;
+}
+
+/* --- ANIMASI MUNCUL DARI ATAS (GAGAL HILANG) --- */
+.animate {
+    opacity: 0;
+    transform: translateY(-30px); /* Posisi awal agak di atas */
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Aktif saat class .aktif ditempel oleh JS */
+.aktif .animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Delay Animasi sesuai class di HTML kamu */
+.aktif .delay-1 { transition-delay: 0.2s; }
+.aktif .delay-2 { transition-delay: 0.4s; }
+.aktif .delay-3 { transition-delay: 0.6s; }
+.aktif .delay-4 { transition-delay: 0.8s; } /* Kartu 1 */
+.aktif .delay-5 { transition-delay: 1.0s; } /* Kartu 2 */
+.aktif .delay-footer { transition-delay: 1.3s; }
+
+.header .subtitle { font-family: 'Cormorant Garamond', serif; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 3px; color: var(--gold-primary); margin-bottom: 5px; text-align: center; }
+.header .title { font-family: 'Allura', cursive; font-size: 3.5rem; color: var(--gold-bright); margin: 0; line-height: 1; text-align: center; }
+.header .desc { font-size: 0.85rem; line-height: 1.5; margin: 20px auto; max-width: 300px; text-align: center; opacity: 0.8; }
+
+/* --- CARD BOX: SUSUN KE BAWAH --- */
+.card-box { 
+    width: 100%; 
+    max-width: 350px;
+    display: flex; 
+    flex-direction: column; /* Tetap susun bawah */
+    gap: 20px; 
+    padding: 20px 0;
+}
+
+.gift-card { 
+    width: 100%;
+    background: var(--black-soft); 
+    border-radius: 20px; 
+    padding: 30px 20px; 
+    text-align: center; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); 
+    border: 1px solid rgba(212, 175, 55, 0.2); 
+    transition: transform 0.3s ease;
+}
+
+.gift-card:hover { transform: translateY(-5px); border-color: var(--gold-primary); }
+
+.bank-logo { height: 22px; margin-bottom: 15px; filter: brightness(0) invert(1); }
+.aladin-logo { font-family: 'Montserrat', sans-serif; font-weight: 800; color: #00A3FF; font-size: 1.6rem; font-style: italic; margin-bottom: 10px; }
+
+/* --- ANGKA: BOLD & GEDE (SESUAI REQUEST) --- */
+.acc-num { 
+    font-family: 'Montserrat', sans-serif; 
+    font-size: 1.9rem; /* Ukuran jumbo */
+    font-weight: 900;   /* Paling Bold */
+    letter-spacing: 1.5px; 
+    margin-bottom: 8px; 
+    color: var(--gold-bright); 
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.acc-name { 
+    font-family: 'Cormorant Garamond', serif; 
+    font-size: 1.1rem; 
+    font-weight: 700; 
+    color: var(--gold-primary); 
+    text-transform: uppercase; 
+    margin-bottom: 20px; 
+}
+
+.btn-copy { 
+    background: linear-gradient(135deg, var(--gold-muted), var(--gold-primary)); 
+    color: var(--black-deep); 
+    border: none; 
+    width: 100%; 
+    padding: 14px; 
+    border-radius: 50px; 
+    font-family: 'Montserrat', sans-serif; 
+    font-size: 0.8rem; 
+    font-weight: 700; 
+    text-transform: uppercase; 
+    cursor: pointer; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    gap: 10px; 
+}
+
+.btn-copy:active { transform: scale(0.95); }
+.btn-copy.success { background: #556B2F !important; color: white; }
+
+.footer .thanks { font-family: 'Allura', cursive; font-size: 2.8rem; color: var(--gold-primary); margin: 30px 0 5px; text-align: center; }
+.footer .names { font-family: 'Montserrat', sans-serif; font-size: 0.75rem; letter-spacing: 4px; text-transform: uppercase; opacity: 0.6; text-align: center; color: var(--gold-bright); }
+
+
+
+/* ============================================================
+   10. HALAMAN 9: BRANDING HERO (REFINED VERSION)
+   ============================================================ */
+#halaman9 { 
+    background-color: #000; 
+    font-family: 'Montserrat', sans-serif; 
+    min-height: 100vh;
+}
+
+.hero-section { 
+    height: 100vh; 
+    width: 100%; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    position: relative; 
+    overflow: hidden; 
+}
+
+/* Background Slider */
+.bg-slider-hero { 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 700%; 
+    height: 100%; 
+    display: flex; 
+    z-index: 0; 
+    animation: slideHeroBg 25s infinite cubic-bezier(0.4, 0, 0.2, 1); 
+    pointer-events: none; 
+}
+
+.bg-slider-hero .bg-slide {
+    flex: 0 0 14.28%; 
+    width: 14.28%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+@keyframes slideHeroBg {
+    0%, 12%   { transform: translateX(0%); }
+    14%, 26%  { transform: translateX(-14.28%); }
+    28%, 40%  { transform: translateX(-28.56%); }
+    42%, 54%  { transform: translateX(-42.84%); }
+    56%, 68%  { transform: translateX(-57.12%); }
+    70%, 82%  { transform: translateX(-71.40%); }
+    84%, 96%  { transform: translateX(-85.68%); }
+    98%, 100% { transform: translateX(0%); }
+}
+
+/* Overlay & Layering */
+.hero-section .overlay { 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    background: radial-gradient(circle, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.9) 100%); 
+    z-index: 1; 
+    pointer-events: none; 
+}
+
+.hero-section .content-wrapper { 
+    position: relative; 
+    z-index: 10; 
+    text-align: center; 
+    color: var(--cream-light); 
+    max-width: 450px; 
+    padding: 20px; 
+    pointer-events: auto; 
+}
+
+/* Logo & Teks Utama */
+.logo-box { 
+    width: 90px; 
+    margin: 0 auto 15px; 
+    filter: drop-shadow(0 4px 15px rgba(212, 175, 55, 0.4)); 
+}
+.logo-box img { width: 100%; height: auto; display: block; }
+
+.brand-name { 
+    font-family: 'Playfair Display', serif; 
+    font-size: 1.8rem; 
+    letter-spacing: 4px; 
+    margin-bottom: 5px; 
+    font-weight: 700; 
+    color: var(--gold-primary); 
+}
+
+.brand-sub { 
+    font-size: 0.6rem; 
+    letter-spacing: 5px; 
+    text-transform: uppercase; 
+    margin-bottom: 25px; 
+    color: var(--gold-bright); 
+    opacity: 0.9;
+}
+
+.description { 
+    font-size: 0.75rem; 
+    line-height: 1.7; 
+    margin-bottom: 30px; 
+    opacity: 0.8; 
+    font-style: italic;
+}
+
+/* Tombol Konsultasi */
+.cta-button { 
+    display: inline-block; 
+    padding: 14px 35px; 
+    background: linear-gradient(135deg, var(--gold-primary), var(--gold-bright)); 
+    color: var(--black-deep); 
+    text-decoration: none; 
+    font-size: 0.65rem; 
+    letter-spacing: 2px; 
+    text-transform: uppercase; 
+    font-weight: 800; 
+    border-radius: 50px; 
+    transition: 0.3s; 
+    margin-bottom: 30px;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+}
+
+/* ============================================================
+   VOUCHER (FIXED DESIGN)
+   ============================================================ */
+.voucher-container { 
+    display: inline-block; 
+    background: rgba(212, 175, 55, 0.08); 
+    backdrop-filter: blur(10px); 
+    border: 1px dashed rgba(212, 175, 55, 0.4); 
+    padding: 20px 25px 15px; 
+    border-radius: 12px; 
+    cursor: pointer; 
+    position: relative; 
+    transition: 0.3s;
+    width: 85%; /* Lebih rapi di mobile */
+    max-width: 320px;
+}
+
+.voucher-badge { 
+    background: var(--gold-primary); 
+    color: var(--black-deep); 
+    font-size: 0.5rem; 
+    font-weight: 800; 
+    padding: 2px 10px; 
+    border-radius: 4px; 
+    position: absolute; 
+    top: -11px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    white-space: nowrap;
+}
+
+.voucher-label { 
+    font-size: 0.7rem; 
+    display: block; 
+    margin-bottom: 5px; 
+    opacity: 0.9;
+}
+
+.voucher-code { 
+    font-weight: 800; 
+    color: var(--gold-bright); 
+    letter-spacing: 2px; 
+    font-size: 1rem; 
+    display: block;
+    margin-bottom: 4px;
+}
+
+.copy-hint { 
+    font-size: 0.6rem; 
+    display: block; 
+    opacity: 0.5; 
+    font-style: italic;
+}
+
+/* Social Links */
+.social-links { 
+    margin-top: 30px; 
+    display: flex; 
+    justify-content: center; 
+    gap: 30px; 
+}
+
+.social-links a { 
+    color: var(--gold-primary); 
+    font-size: 1.4rem; 
+    transition: 0.3s; 
+}
+
+/* ============================================================
+   11. UI ELEMENTS (TOAST & HELPERS)
+   ============================================================ */
+#toast {
+    visibility: hidden; 
+    min-width: 180px; 
+    background: linear-gradient(135deg, var(--gold-primary), var(--gold-bright));
+    color: var(--black-deep); 
+    text-align: center; 
+    border-radius: 50px; 
+    padding: 10px 20px;
+    position: fixed; 
+    z-index: 10000; 
+    bottom: 50px; 
+    left: 50%; 
+    transform: translateX(-50%);
+    font-size: 0.7rem; 
+    font-weight: 700; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    pointer-events: none;
+}
+
+#toast.show { 
+    visibility: visible; 
+    animation: slideInUp 0.4s forwards, fadeOut 0.4s 1.6s forwards; 
+}
+
+@keyframes slideInUp { from { bottom: 0; opacity: 0; } to { bottom: 50px; opacity: 1; } }
+@keyframes fadeOut { from { opacity: 1; } to { opacity: 0; } }
+
+/* Touch Optimization */
+.cta-button, .social-links a, .voucher-container, .btn-copy {
+    cursor: pointer;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* ============================================================
+   11. UI ELEMENTS (TOAST & HELPERS)
+   ============================================================ */
+#toast {
+    visibility: hidden; 
+    min-width: 180px; 
+    background: linear-gradient(135deg, var(--gold-primary), var(--gold-bright));
+    color: var(--black-deep); 
+    text-align: center; 
+    border-radius: 50px; 
+    padding: 10px 20px;
+    position: fixed; 
+    z-index: 10000; 
+    bottom: 50px; 
+    left: 50%; 
+    transform: translateX(-50%);
+    font-size: 0.7rem; 
+    font-weight: 700; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    pointer-events: none;
+}
+
+#toast.show { 
+    visibility: visible; 
+    animation: slideInUp 0.4s forwards, fadeOut 0.4s 1.6s forwards; 
+}
+
+@keyframes slideInUp { from { bottom: 0; opacity: 0; } to { bottom: 50px; opacity: 1; } }
+@keyframes fadeOut { from { opacity: 1; } to { opacity: 0; } }
+
+/* Touch Optimization */
+.cta-button, .social-links a, .voucher-container, .btn-copy {
+    cursor: pointer;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+
+
+/* =========================================
+   PRELOADER RUANG TEMU - CSS
+   ========================================= */
+#preloader {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: #ffffff; /* Layar Putih Bersih */
+    display: flex; justify-content: center; align-items: center;
+    z-index: 99999; /* Pastikan di atas segalanya */
+    transition: opacity 1s ease, visibility 1s ease;
+    flex-direction: column;
+}
+
+#preloader.fade-out {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.preloader-content-wrapper {
+    text-align: center;
+    animation: pulsePreloader 2s infinite ease-in-out;
+}
+
+/* Kotak Logo */
+.logo-box {
+    width: 80px; /* Atur ukuran logo */
+    height: auto;
+    margin-bottom: 25px;
+    margin-left: auto; margin-right: auto;
+}
+
+/* SVG Logo Cyan (Mirip di Gambar) */
+.preloader-logo-svg {
+    width: 100%; height: 100%;
+}
+
+/* Teks Logo */
+.preloader-text {
+    margin-bottom: 30px;
+}
+
+.preloader-text h1.ruang-temu {
+    font-family: 'Montserrat', sans-serif; /* Font elegan & modern */
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #333333; /* Warna gelap agar kontras dengan putih */
+    letter-spacing: 5px; /* Beri jarak antar huruf */
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.preloader-text p.tagline {
+    font-family: 'Lora', serif; /* Font serif yang lebih lembut */
+    font-size: 1rem;
+    font-weight: 300;
+    color: #888888;
+    letter-spacing: 2px;
+    margin-top: 5px;
+}
+
+/* Garis Loading */
+.preloader-loading-bar {
+    width: 120px;
+    height: 3px;
+    background: #f0f0f0;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.preloader-loading-bar::after {
+    content: '';
+    position: absolute;
+    left: -100%;
+    width: 100%; height: 100%;
+    background: #00ffff; /* Warna Cyan (Biru Tosca) */
+    animation: preloaderLoadingBar 1.8s infinite;
+}
+
+/* --- KEYFRAMES --- */
+@keyframes pulsePreloader {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.02); opacity: 0.9; }
+}
+
+@keyframes preloaderLoadingBar {
+    100% { left: 100%; }
+}

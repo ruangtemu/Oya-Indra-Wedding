@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Undangan Pernikahan Oya & Indra | Ruang Temu Design</title>
+    
+    <meta property="og:image" content="https://res.cloudinary.com/dzuf3srww/image/upload/q_auto/v1773719747/file_000000000c8c7208a8488f27b640786f_1_g39g0l.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@200;400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="preloader">
+    <div class="preloader-content-wrapper">
+        <div class="logo-box">
+            <svg class="preloader-logo-svg" viewBox="0 0 100 100">
+                <rect x="10" y="25" width="80" height="50" rx="10" stroke="#00ffff" stroke-width="6" fill="none"/>
+                <path d="M10,25 L50,60 L90,25" stroke="#00ffff" stroke-width="6" fill="none"/>
+            </svg>
+        </div>
+        
+        <div class="preloader-text">
+            <h1 class="ruang-temu">RUANG TEMU</h1>
+            <p class="tagline">tempat berkumpulnya momen dan cerita</p>
+        </div>
+        
+        <div class="preloader-loading-bar"></div>
+    </div>
+</div>
+
+
+
+    <audio id="background-music" loop>
+        <source src="https://res.cloudinary.com/dzuf3srww/video/upload/v1/Music_acpz2n.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <div class="phone-screen" id="main-container">
+        
+        <section id="page1" class="clickable-section">
+            <div class="photo-container">
+                <p class="wedding-title anim-item">The Wedding Of</p>
+                <div class="initials anim-item">
+                    <span>I</span>
+                    <div class="divider"></div>
+                    <span>O</span>
+                </div>
+                <p class="wedding-date anim-item">Minggu, 12 April 2026</p>
+            </div>
+            
+            <div class="countdown-section">
+                <div class="anim-item">
+                    <p>Menuju Hari Bahagia</p>
+                    <div class="timer-grid">
+                        <div><div class="number" id="days">00</div><div class="label">Hari</div></div>
+                        <div><div class="number" id="hours">00</div><div class="label">Jam</div></div>
+                        <div><div class="number" id="minutes">00</div><div class="label">Menit</div></div>
+                        <div><div class="number" id="seconds">00</div><div class="label">Detik</div></div>
+                    </div>
+                </div>
+
+                <div class="recipient anim-item">
+                    Penerima Undangan:
+                    <div class="recipient-name" id="guestName">Bapak/Ibu/Saudara/i</div>
+                </div>
+                
+                <button id="open-invitation" class="btn-open anim-item">
+                    <i class="fa-solid fa-envelope" style="margin-right:12px;"></i> Buka Undangan
+                </button>
+            </div>
+        </section>
+
+        <div id="content-wrapper" style="display: none;">
+            
+            <section id="page2" class="couple-section clickable-section">
+                <div class="bg-ornament"></div>
+                <div class="card-container">
+                    <div class="label-wrapper anim-drop-glow">
+                        <span class="gold-line"></span>
+                        <p class="label-title">The Bride</p>
+                        <span class="gold-line"></span>
+                    </div>
+                    <div class="vintage-frame">
+                        <div class="image-inner">
+                            <img src="https://res.cloudinary.com/dzuf3srww/image/upload/f_auto,q_auto/v1773138035/Mempelai_Wanita_x6jkbx.jpg" alt="Siqoyaturrohmah">
+                        </div>
+                    </div>
+                    <div class="info-wrapper">
+                        <h1 class="bride-name anim-elegant-reveal">Siqoyaturrohmah</h1>
+                        <div class="family-details anim-fade-stagger">
+                            <p class="role-text">Putri ke-6 dari</p>
+                            <div class="parent-box">
+                                <p class="parent-name">Bapak A. Machpudin</p>
+                                <div class="divider-gold"></div>
+                                <p class="parent-name">Ibu E. Sukaesih</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="halaman3" class="couple-section clickable-section">
+                <div class="bg-ornament"></div>
+                <div class="card-container">
+                    <div class="label-wrapper anim-drop-glow">
+                        <span class="gold-line"></span>
+                        <p class="label-title">The Groom</p>
+                        <span class="gold-line"></span>
+                    </div>
+                    <div class="vintage-frame">
+                        <div class="image-inner">
+                            <img src="https://res.cloudinary.com/dzuf3srww/image/upload/f_auto,q_auto/v1773138017/Mempelai_Pria_kebdrj.jpg" alt="Indra Yogaswara">
+                        </div>
+                    </div>
+                    <div class="info-wrapper">
+                        <h1 class="bride-name anim-elegant-reveal">Indra Yogaswara</h1>
+                        <div class="family-details anim-fade-stagger">
+                            <p class="role-text">Putra pertama dari</p>
+                            <div class="parent-box">
+                                <p class="parent-name">Bapak Sutia (Alm)</p>
+                                <div class="divider-gold"></div>
+                                <p class="parent-name">Ibu Erlinda</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="halaman4">
+                <div class="bg-slider">
+                    <div class="bg-slide"></div>
+                    <div class="bg-slide"></div>
+                    <div class="bg-slide"></div>
+                </div>
+
+                <div class="card-frame">
+                    <h3 class="header-label">Save The Date</h3>
+                    <div class="date-section">
+                        <p class="day">Minggu</p>
+                        <h1 class="main-date">12</h1>
+                        <p class="month-year">April | 2026</p>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="info-box">
+                        <p class="info-time">Pukul 09.00 - Selesai</p>
+                        <p class="address-text">
+                            <span class="venue-name">Sebrang Perumahan Lembang Highland<br>
+                            Kp. Gandrung Rt.03/10, Kec. Cisarua,<br>
+                            Kabupaten Bandung Barat
+                        </p>
+                    </div>
+                    <a href="https://share.google/VRt83GNyLkHZdAVs0" class="btn-maps" target="_blank">
+                        LIHAT LOKASI
+                    </a>
+                </div>
+            </section>
+
+           <section id="halaman5">
+    <section class="story-page reveal active" id="story">
+        <div class="story-bg-slider">
+            <div class="story-bg-slide" style="background-image: url('https://res.cloudinary.com/dzuf3srww/image/upload/v1773628123/Kisah_Cinta_1_dxn1bj.jpg');"></div>
+            <div class="story-bg-slide" style="background-image: url('https://res.cloudinary.com/dzuf3srww/image/upload/v1773628123/Kisah_Cinta_2_ogpdmr.jpg');"></div>
+        </div>
+        <div class="story-overlay"></div>
+        
+        <div class="content-container">
+            <div class="elegant-title">
+                <h2 class="wave-trigger-title">Our Love Story</h2>
+                <div class="divider-line"></div>
+                <p class="the-journey">THE JOURNEY</p>
+            </div>
+            
+            <div class="story-narrative">
+                <p>"Berawal dari tahun 2024, takdir mempertemukan kami melalui perantara seorang sahabat. Sebuah pertemuan sederhana yang ternyata menjadi pembuka babak baru kehidupan kami yang tak terhingga."</p>
+            </div>
+        </div>
+    </section>
+</section>
+
+                <section class="gallery-page" id="gallery-trigger">
+                    <div class="elegant-title reveal" style="margin-bottom: 45px;">
+                        <h2 class="wave-trigger-title" style="font-size: 2.8rem;">Moment Gallery</h2>
+                        <div class="divider-line"></div>
+                        <p class="wave-trigger-reveal">Captured Memories</p>
+                    </div>
+                    <div class="grid-container">
+                        <div class="grid-item h-large"><img src="https://res.cloudinary.com/dzuf3srww/image/upload/f_auto,q_auto/v1773138024/1_lc0jg9.jpg"></div>
+                        <div class="grid-item h-medium"><img src="https://res.cloudinary.com/dzuf3srww/image/upload/f_auto,q_auto/v1773294985/Nuansa_Hitam_1_jbpx89.jpg"></div>
+                        <div class="grid-item h-medium"><img src="https://res.cloudinary.com/dzuf3srww/image/upload/f_auto,q_auto/v1773294984/Nuansa_Hitam_2_jozopr.jpg"></div>
+                        <div class="grid-item h-medium"><img src="https://res.cloudinary.com/dzuf3srww/image/upload/f_auto,q_auto/v1773138020/3_izlcit.jpg"></div>
+                        <div class="grid-item h-medium"><img src="https://res.cloudinary.com/dzuf3srww/image/upload/f_auto,q_auto/v1773138027/2_y7zht5.jpg"></div>
+                        <div class="grid-item h-large"><img src="https://res.cloudinary.com/dzuf3srww/image/upload/f_auto,q_auto/v1773138020/4_a3px7b.jpg"></div>
+                    </div>
+                </section>
+            </section>
+
+            <section id="halaman6">
+                <section id="detail" class="quote-section">
+                    <div class="background-slider">
+                        <div class="slide slide-1"></div>
+                        <div class="slide slide-2"></div>
+                        <div class="slide slide-3"></div>
+                        <div class="slide slide-4"></div>
+                        <div class="slide slide-5"></div>
+                        <div class="slide slide-6"></div>
+                        <div class="slide slide-7"></div>
+                    </div>
+                    <div class="overlay"></div>
+                    <div class="leaf-icon"><i class="fa-solid fa-leaf"></i></div>
+                    <div class="content-wrapper">
+                        <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+                        <p class="quote-text">
+                            “Ya Rabb kami, anugerahkanlah kepada kami pasangan dan keturunan sebagai penyejuk hati (mata), dan jadikanlah kami pemimpin bagi orang-orang yang bertakwa.”
+                        </p>
+                        <div class="divider">
+                            <div class="line"></div>
+                            <div class="dot"></div>
+                            <div class="line"></div>
+                        </div>
+                        <p class="source-text">— QS. AL-FURQAN: 74 —</p>
+                    </div>
+                    <div class="circle-decoration"></div>
+                </section>
+            </section>
+
+            <section id="halaman7">
+                <section class="rsvp-section" id="reservasi">
+                    <div class="rsvp-container">
+                        <div class="rsvp-header" data-aos="fade-down">
+                            <h2>RSVP</h2>
+                            <p>Buku Tamu & Ucapan</p>
+                        </div>
+
+                        <div class="stats-dashboard" data-aos="fade-up">
+                            <div class="stat-box">
+                                <span class="num" id="statTotal">0</span>
+                                <span class="label">Pesan</span>
+                            </div>
+                            <div class="stat-box">
+                                <span class="num" id="statHadir">0</span>
+                                <span class="label">Hadir</span>
+                            </div>
+                            <div class="stat-box">
+                                <span class="num" id="statTidak">0</span>
+                                <span class="label">Absen</span>
+                            </div>
+                        </div>
+
+                        <div class="swiper mySwiper" data-aos="zoom-in">
+                            <div class="swiper-wrapper" id="comments-list"></div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+
+                        <div class="rsvp-form" data-aos="fade-up">
+                            <div class="input-group">
+                                <input type="text" id="inputName" placeholder=" ">
+                                <label>Nama Lengkap</label>
+                            </div>
+                            <div class="input-group">
+                                <textarea id="inputMessage" rows="2" placeholder=" "></textarea>
+                                <label>Ucapan & Doa</label>
+                            </div>
+                            <div class="radio-options">
+                                <input type="radio" name="attend" id="hadirYa" value="Hadir" checked>
+                                <label for="hadirYa" class="radio-btn">Hadir</label>
+                                <input type="radio" name="attend" id="hadirTidak" value="Tidak Hadir">
+                                <label for="hadirTidak" class="radio-btn">Absen</label>
+                            </div>
+                            <button id="sendBtn" class="btn-send">
+                                <span>Kirim Ucapan</span> <i class="fa-solid fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <hr class="separator">
+
+            <section id="halaman8">
+                <div class="phone-screen" style="box-shadow: none;">
+                    <div class="header">
+                        <div class="subtitle animate delay-1">Tanda Kasih</div>
+                        <h1 class="title animate delay-2">Wedding Gift</h1>
+                        <p class="desc animate delay-3">Doa restu Anda merupakan hadiah terindah bagi kami. Namun apabila ingin memberikan tanda kasih, dapat melalui:</p>
+                    </div>
+
+                    <div class="card-box">
+                        <div class="gift-card animate delay-4">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Bank_Central_Asia.svg" alt="BCA" class="bank-logo">
+                            <div class="acc-num">1390808123</div>
+                            <div class="acc-name">a.n Siqoyaturrohmah</div>
+                            <button class="btn-copy" onclick="copyNum('1390808123', this)">
+                                <i class="fa-regular fa-copy"></i> Salin Nomor
+                            </button>
+                        </div>
+
+                        <div class="gift-card animate delay-5">
+                            <div class="aladin-logo">aladin</div>
+                            <div class="acc-num">50892108890</div>
+                            <div class="acc-name">a.n Siqoyaturrohmah</div>
+                            <button class="btn-copy" onclick="copyNum('50892108890', this)">
+                                <i class="fa-regular fa-copy"></i> Salin Nomor
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="footer animate delay-footer">
+                        <h2 class="thanks">Terima Kasih</h2>
+                        <div class="names">Oya & Indra</div>
+                    </div>
+                </div>
+            </section>
+
+            <hr class="separator">
+
+            <section id="halaman9">
+                <section class="hero-section">
+                    <div class="bg-slider-hero">
+                        <div class="bg-slide slide-1"></div>
+                        <div class="bg-slide slide-2"></div>
+                        <div class="bg-slide slide-3"></div>
+                        <div class="bg-slide slide-4"></div>
+                        <div class="bg-slide slide-5"></div>
+                        <div class="bg-slide slide-6"></div>
+                        <div class="bg-slide slide-7"></div>
+                    </div>
+
+                    <div class="overlay"></div>
+
+                    <div class="content-wrapper">
+                        <div class="logo-box">
+                            <svg viewBox="0 0 100 80" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#00f2fe;stop-opacity:1" />
+                                        <stop offset="100%" style="stop-color:#00c9ff;stop-opacity:1" />
+                                    </linearGradient>
+                                </defs>
+                                <path d="M10,20 Q10,10 20,10 L80,10 Q90,10 90,20 L90,60 Q90,70 80,70 L20,70 Q10,70 10,60 Z" fill="none" stroke="url(#logoGrad)" stroke-width="8" />
+                                <path d="M28,38 L50,56 L72,38" fill="none" stroke="url(#logoGrad)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M28,38 L28,58 M72,38 L72,58" fill="none" stroke="url(#logoGrad)" stroke-width="7" stroke-linecap="round" />
+                            </svg>
+                        </div>
+
+                        <div class="line-deco"></div>
+                        <h1 class="brand-name">RUANG TEMU</h1>
+                        <p class="brand-sub">Invitation Design</p>
+
+                        <p class="description">
+                            Ciptakan momen tak terlupakan dengan undangan digital yang elegan, eksklusif, dan personal.
+                        </p>
+
+                        <a href="https://wa.me/6285624359925?text=Kak%20saya%20mau%20info%20harga%20list%20undangannnya" class="cta-button" target="_blank">
+                            Konsultasi Sekarang
+                        </a>
+
+                        <br>
+
+                        <div class="voucher-container" onclick="copyVoucher()">
+                            <div class="voucher-badge">POTONGAN 10%</div>
+                            <span class="voucher-label">Gunakan Kode Promo</span>
+                            <span class="voucher-code" id="promoCode">TEMUBAHAGIA</span>
+                            <span class="copy-hint">(Klik untuk salin kode)</span>
+                        </div>
+
+                        <div class="social-links">
+                            <a href="https://www.instagram.com/ruangtemu.design" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="https://wa.me/6285624359925?text=Kak%20saya%20mau%20info%20harga%20list%20undangannnya" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+        </div> </div> <div id="toast">Berhasil Tersalin!</div>
+
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+
+    <script>
+        // --- Inisialisasi AOS & Animations ---
+        AOS.init();
+
+        function prepareTextAnimations() {
+            document.querySelectorAll('.wave-trigger-title').forEach(el => { applySpans(el, 'wave-title'); });
+            document.querySelectorAll('.wave-trigger-reveal').forEach(el => { applySpans(el, 'wave-reveal'); });
+        }
+
+        function applySpans(el, customClass) {
+            const text = el.innerText;
+            el.innerHTML = '';
+            el.classList.add('wave-text', customClass);
+            [...text].forEach((char, i) => {
+                const span = document.createElement('span');
+                span.innerText = char === ' ' ? '\u00A0' : char;
+                span.style.animationDelay = `${i * 0.1}s`; 
+                span.style.transitionDelay = `${i * 0.03}s`;
+                el.appendChild(span);
+            });
+        }
+
+        prepareTextAnimations();
+
+        // --- Intersection Observer ---
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    if (entry.target.id === 'gallery-trigger') {
+                        const photos = entry.target.querySelectorAll('.grid-item');
+                        photos.forEach((photo, index) => {
+                            setTimeout(() => { photo.classList.add('show'); }, (index + 1) * 800); 
+                        });
+                        observer.unobserve(entry.target);
+                    }
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        const galleryTrigger = document.getElementById('gallery-trigger');
+        if(galleryTrigger) observer.observe(galleryTrigger);
+
+        // --- Logic Buka Undangan ---
+        const btnOpen = document.getElementById('open-invitation');
+        const contentWrapper = document.getElementById('content-wrapper');
+        const audio = document.getElementById('background-music');
+
+        if(btnOpen) {
+            btnOpen.addEventListener('click', function() {
+                contentWrapper.style.display = 'block';
+                audio.play();
+                document.getElementById('page2').scrollIntoView({ behavior: 'smooth' });
+            });
+        }
+
+        // --- Fungsi Salin ---
+        function copyNum(val, el) {
+            navigator.clipboard.writeText(val).then(() => {
+                const original = el.innerHTML;
+                el.innerHTML = '<i class="fa-solid fa-check"></i> Tersalin';
+                el.classList.add('success');
+                setTimeout(() => {
+                    el.innerHTML = original;
+                    el.classList.remove('success');
+                }, 2000);
+            });
+        }
+
+        function copyVoucher() {
+            const code = document.getElementById('promoCode').innerText;
+            navigator.clipboard.writeText(code).then(() => {
+                const toast = document.getElementById('toast');
+                toast.innerText = "Kode Promo Tersalin!";
+                toast.classList.add('show');
+                setTimeout(() => { toast.classList.remove('show'); }, 2000);
+            });
+        }
+    </script>
+    
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Sekarang semua elemen yang punya class .animate 
+                // akan muncul pas di-scroll ke arahnya
+                entry.target.classList.add('aktif');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    // Mencari SEMUA elemen yang punya class .animate di semua halaman
+    const allAnimatedElements = document.querySelectorAll('.animate');
+    allAnimatedElements.forEach(el => observer.observe(el));
+
+    // Khusus untuk halaman 8 (jika bungkusnya butuh class aktif)
+    const hal8 = document.querySelector('#halaman8');
+    if (hal8) observer.observe(hal8);
+});
+
+// Fungsi Salin Rekening
+function copyNum(text, btn) {
+    navigator.clipboard.writeText(text).then(() => {
+        const originalText = btn.innerHTML;
+        btn.classList.add('success');
+        btn.innerHTML = '<i class="fa-solid fa-check"></i> Tersalin';
+        setTimeout(() => {
+            btn.classList.remove('success');
+            btn.innerHTML = originalText;
+        }, 2000);
+    });
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    // --- KODE UNTUK MENGHILANGKAN PRELOADER ---
+    const loader = document.getElementById('preloader');
+    if (loader) {
+        // Hilangkan preloader setelah 2 detik (atur durasi sesuai keinginan)
+        setTimeout(() => {
+            loader.classList.add('fade-out');
+        }, 2000); 
+    }
+    
+    // ... (sisanya kode IntersectionObserver kamu yang sebelumnya untuk gift card dll) ...
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('aktif');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    const hal8 = document.querySelector('#halaman8');
+    if (hal8) observer.observe(hal8);
+
+document.querySelectorAll('.animate').forEach(el => observer.observe(el));
+
+});
+
+</script>
+</body>
+</html>
