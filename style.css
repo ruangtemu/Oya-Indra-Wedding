@@ -110,7 +110,7 @@ section {
 
 .photo-container {
     flex: 1; 
-    background: url(https://res.cloudinary.com/dzuf3srww/image/upload/f_auto,q_auto/v1773138014/Cover_a2kgup.jpg) center/cover no-repeat;
+    background: url(https://res.cloudinary.com/dzuf3srww/image/upload/w_600,c_limit,q_auto,f_auto/v1773727751/IMG-20260317-WA0003_scfcqo.jpg) center/cover no-repeat;
     display: flex; flex-direction: column; justify-content: flex-end; align-items: center;
     padding-bottom: 20px; position: relative;
     /* Memastikan kontainer foto tidak meluber */
